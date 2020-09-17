@@ -15,12 +15,13 @@ export default class Product extends Component {
             myquantity: 0,
             tquantity: 0,
             price: 0,
-            eachiq: 0,
         }
     }
 
     componentDidMount() {
-        fetch('./data.json')
+        const URL = './data.json'
+        // const URL = "https://fakestoreapi.com/products"
+        fetch(URL)
             .then(response => {
                 return response.json();
             })
@@ -39,30 +40,27 @@ export default class Product extends Component {
             )
     }
 
-    addItemToCartHandler = (item) => {
-        if (this.state.cart.length > 0) {
-            this.state.cart.map((c, index) => {
-                // condition for updating value
-                if (c.id == item.id) {
-                    let cartCopy = [...this.state.cart]
-                    cartCopy[index].tquantity += 1
-                    this.setState({ cart: cartCopy }, () =>
-                        console.log("updated cart2", this.state.cart)
-                    )
-                } else {
-                    this.setState((prevState) => ({
-                        cart: [...prevState.cart, item],
-                    }))
+
+
+    addToCart(item) {
+        let cartInd = 0;
+        let targetId = 0;
+        if (this.state.cart.length <= 0) {
+            this.setState({ cart: [...this.state.cart, item] });
+        } else {
+            this.state.cart.forEach((c, i) => {
+                if (c.id === item.id) {
+                    cartInd = i;
+                    targetId = item.id;
                 }
-            }
-            )
+            });
         }
-        else {
-            this.setState((prevState, props) => ({
-                cart: [...prevState.cart, item],
-            }), () =>
-                console.log("updated cart1", this.state.cart)
-            )
+        if (targetId === item.id) {
+            let copyCart = this.state.cart;
+            copyCart[cartInd].tquantity += 1;
+            this.setState({ cart: copyCart });
+        } else {
+            this.setState({ cart: [...this.state.cart, item] });
         }
 
         // ========================= total update ======================
@@ -74,47 +72,34 @@ export default class Product extends Component {
 
     }
 
-    removeCartHandler(item) {
-
-        if (this.state.cart.length > 0) {
-            this.state.cart.map((c, index) => {
-                // condition for updating value
-                if (c.id == item.id) {
-                    let cartCopy = [...this.state.cart]
-                    cartCopy[index].tquantity -= 1
-                    this.setState({ cart: cartCopy })
-                } else {
-                    if (this.state.myquantity > 0) {
-
-                        this.setState(prevState => ({
-                            cart: [...prevState.cart, item],
-                        }))
-                    }
+    removeFromCart(item) {
+        let cartInd = 0;
+        let targetId = 0;
+        if (this.state.cart.length <= 0) {
+            this.setState({ cart: [...this.state.cart, item] });
+        } else {
+            this.state.cart.forEach((c, i) => {
+                if (c.id === item.id) {
+                    cartInd = i;
+                    targetId = item.id;
                 }
-            }
-            )
+            });
         }
-        else {
-            if (this.state.myquantity > 0) {
-
-                this.setState(prevState => ({
-                    cart: [...prevState.cart, item],
-                }))
-            }
+        if (targetId === item.id) {
+            let copyCart = this.state.cart;
+            copyCart[cartInd].tquantity -= 1;
+            this.setState({ cart: copyCart });
+        } else {
+            this.setState({ cart: [...this.state.cart, item] });
         }
 
-        if (this.state.myquantity > 0) {
-            this.setState(prevState => ({
-                ...this.state,
-                myquantity: prevState.myquantity - 1,
-                price: prevState.price - item.price,
-            }))
-        }
-    }
+        // ========================= total update ======================
+        this.setState(prevState => ({
+            addcart: true,
+            myquantity: prevState.myquantity - 1,
+            price: prevState.price - item.price,
+        }))
 
-    getDerivedSttaeFromProps() {
-        this.addItemToCartHandler()
-        this.removeCartHandler()
     }
 
     clearCart = () => {
@@ -143,7 +128,7 @@ export default class Product extends Component {
     }
 
     render() {
-        const { items, error, isLoaded, eachiq, price, addcart, checkout, cart, myquantity } = this.state;
+        const { items, error, isLoaded, price, addcart, checkout, cart, myquantity } = this.state;
         console.log(' items ====', items)
         console.log('this.state.cart ===>', this.state.cart)
         // console.log('cart each quatitiy', eachiq)
@@ -170,19 +155,28 @@ export default class Product extends Component {
                                         <li>MRP: {item.mrp}</li>
                                         <li>Rs: {item.price}</li>
                                         <li className="add-cart">
-                                            <button onClick={(e) => this.addItemToCartHandler(item)} >Add Cart</button>
+                                            <button onClick={(e) => this.addToCart(item)} >Add Cart</button>
                                             {
                                                 item.tquantity > 0 ?
-                                                    <button onClick={() => this.removeCartHandler(item)}>-</button>
+                                                    <button onClick={() => this.removeFromCart(item)}>-</button>
                                                     :
-                                                    <button onClick={() => this.removeCartHandler(item)} className="btn-disabled" disabled>-</button>
+                                                    <button onClick={() => this.removeFromCart(item)} className="btn-disabled" disabled>-</button>
 
 
                                             }
-                                            <button>
-                                                {item.tquantity === 1 ? "0" : item.tquantity}
-                                            </button>
-                                            <button onClick={() => this.addItemToCartHandler(item)}>+</button>
+
+                                            {(cart.length === 0 || cart == null) ? <button > 0 </button> :
+                                                <button >
+                                                    {
+                                                        cart.length > 0 &&
+                                                        cart.map((citem, cindex) => (
+                                                            <p key={cindex}> {citem.id === item.id ? citem.tquantity : ""} </p>
+                                                        ))
+
+                                                    }
+                                                </button>
+                                            }
+                                            <button onClick={() => this.addToCart(item)}>+</button>
                                         </li>
                                     </ul>
                                 </div>
