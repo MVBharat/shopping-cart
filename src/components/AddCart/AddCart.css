@@ -1,0 +1,45 @@
+.addcart {
+  background-color: purple;
+  height: 5rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  padding: 1rem 3rem;
+  justify-content: space-around;
+}
+.addcart button {
+  height: 3rem;
+  text-align: center;
+  background-color: #fcc535;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-left: 0.3rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.cart-qp {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 4.5rem;
+}
+.cart-qp button:first-child {
+  width: 5rem;
+}
+.cart-qp button {
+  margin-bottom: 0.3rem;
+}
+.flexgap {
+  flex: 1;
+}
+
+.cart-cc {
+  margin-right: 11rem;
+}

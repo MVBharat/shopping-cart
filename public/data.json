@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "brand_name": "Ashirvad",
+    "product_name": "Wheat flour",
+    "quatity": "1Kg",
+    "tquantity": 1,
+    "mrp": 110,
+    "price": 100,
+    "image": "https://picsum.photos/350/300",
+    "offer": "10%"
+  },
+  {
+    "id": 2,
+    "brand_name": "Amul",
+    "product_name": "Cheese",
+    "quatity": "200Gms",
+    "tquantity": 1,
+    "mrp": 50,
+    "price": 45,
+    "image": "https://picsum.photos/350/300",
+    "offer": "5%"
+  },
+  {
+    "id": 3,
+    "brand_name": "MilkFood",
+    "product_name": "Ghee",
+    "quatity": "1L",
+    "tquantity": 1,
+    "mrp": 600,
+    "price": 400,
+    "image": "https://picsum.photos/350/300",
+    "offer": "50%"
+  },
+  {
+    "id": 4,
+    "brand_name": "Himalaya",
+    "product_name": "Hair care Shampop",
+    "quatity": "200Ml",
+    "tquantity": 1,
+    "mrp": 100,
+    "price": 90,
+    "image": "https://picsum.photos/350/300",
+    "offer": "15%"
+  },
+  {
+    "id": 5,
+    "brand_name": "Dabur",
+    "product_name": "Premium Honey",
+    "quatity": "1L",
+    "tquantity": 1,
+    "mrp": 1200,
+    "price": 1000,
+    "image": "https://picsum.photos/350/300",
+    "offer": "40%"
+  },
+  {
+    "id": 6,
+    "brand_name": "Brettania",
+    "product_name": "Biscuits",
+    "quatity": "200Gms",
+    "tquantity": 1,
+    "mrp": 40,
+    "price": 30,
+    "image": "https://picsum.photos/350/300",
+    "offer": "10%"
+  },
+  {
+    "id": 7,
+    "brand_name": "Goldwinner",
+    "product_name": "Sunflower Oil",
+    "quatity": "1L",
+    "tquantity": 1,
+    "mrp": 150,
+    "price": 130,
+    "image": "https://picsum.photos/350/300",
+    "offer": "10%"
+  },
+  {
+    "id": 8,
+    "brand_name": "Kissan",
+    "product_name": "Jam",
+    "quatity": "500Gms",
+    "tquantity": 1,
+    "mrp": 120,
+    "price": 110,
+    "image": "https://picsum.photos/350/300",
+    "offer": "5%"
+  },
+  {
+    "id": 9,
+    "brand_name": "Patanjali",
+    "product_name": "Chywanprash",
+    "quatity": "200Gms",
+    "tquantity": 1,
+    "mrp": 150,
+    "price": 140,
+    "image": "https://picsum.photos/350/300",
+    "offer": "15%"
+  },
+  {
+    "id": 10,
+    "brand_name": "Tide",
+    "product_name": "Washing Powder",
+    "quatity": "500Gms",
+    "tquantity": 1,
+    "mrp": 250,
+    "price": 230,
+    "image": "https://picsum.photos/350/300",
+    "offer": "10%"
+  }
+]
