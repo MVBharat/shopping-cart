@@ -1,5 +1,4 @@
 import React from 'react'
-import Checkout from '../Checkout/Checkout';
 import "./AddCart.css";
 import checkmark from '../../checkmark.png'
 function AddCart(props) {

@@ -43,3 +43,59 @@
 .cart-cc {
   margin-right: 11rem;
 }
+
+/* ============ Checkout============ */
+
+.closeButton {
+  float: right;
+  cursor: pointer;
+  top: 0;
+  margin-top: -25.2rem;
+  margin-right: -0.7rem;
+  background: red;
+  border: none;
+  height: 2rem;
+  color: white;
+  width: 2rem;
+  font-weight: 900;
+  font-size: 18px;
+}
+.popupModal {
+  border: 1px solid grey;
+  width: 50rem;
+  height: 25rem;
+  margin: 10px;
+  padding: 10px;
+  position: fixed;
+  left: 20rem;
+  top: -450px;
+  background: white;
+  text-align: center;
+  animation: drop 0.5s ease forwards;
+  border-radius: 5px;
+}
+@keyframes drop {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(500px);
+  }
+  100% {
+    transform: translateY(450px);
+    opacity: 1;
+  }
+}
+
+.checkmark-icon {
+  width: 10rem;
+  height: 10rem;
+}
+
+.popupModal p {
+  background-color: #93ef98;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 6rem;
+}
